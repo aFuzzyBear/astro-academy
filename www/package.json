@@ -1,12 +1,14 @@
 {
-  "name": "www",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@example/minimal",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "astro": "^0.20.5"
+  }
 }
