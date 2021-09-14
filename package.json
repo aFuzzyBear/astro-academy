@@ -1,0 +1,41 @@
+{
+  "name": "astro-academy",
+  "private": true,
+  "description": "",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aFuzzyBear/astro-academy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aFuzzyBear/astro-academy/issues"
+  },
+  "homepage": "https://github.com/aFuzzyBear/astro-academy#readme",
+  "devDependencies": {
+    "astro": "^0.20.5",
+    "eslint": "^7.32.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.4.0",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "npm": "7.11.2",
+    "yarn": "1.22.10"
+  },
+  "workspaces": [
+    "examples/*",
+    "guides/*",
+    "lessons/*",
+    "www"
+  ]
+}
