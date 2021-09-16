@@ -1,0 +1,82 @@
+/* Development Hell - latin */
+@font-face {
+    font-family: 'Development Hell';
+    font-style: normal;
+    src: url('../assets/fonts/dev-hell/DevelopmentHell-KP3A.ttf'); 
+  }
+/* Final Frontier Old - latin*/
+@font-face {
+    font-family: 'Final Frontier Old';
+    font-style: normal;
+    src: url('../assets/fonts/final-frontier/FinalFrontier-old.ttf'); 
+  }
+/* Final Frontier New - latin */
+@font-face {
+    font-family: 'Final Frontier New';
+    font-style: normal;
+    src: url('../assets/fonts/final-frontier/FinalFrontier-new.ttf'); 
+  }
+/* nunito-sans-regular - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/nunito-sans/nunito-sans-v6-latin-regular.ttf'); 
+  }
+  /* nunito-sans-600 - latin */
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/nunito-sans/nunito-sans-v6-latin-600.ttf');
+  }
+  /* nunito-sans-600italic - latin */
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../assets/fonts/nunito-sans/nunito-sans-v6-latin-600italic.ttf'); 
+  }
+  /* nunito-sans-800 - latin */
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../assets/fonts/nunito-sans/nunito-sans-v6-latin-800.ttf'); 
+  }
+  /* nunito-sans-800italic - latin */
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-style: italic;
+    font-weight: 800;
+    src: url('../assets/fonts/nunito-sans/nunito-sans-v6-latin-800italic.ttf'); /* IE9 Compat Modes */
+  }
+  /* noto-sans-regular - latin */
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/noto-sans/noto-sans-v14-latin-regular.ttf'); 
+  }
+  /* noto-sans-700 - latin */
+  @font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/noto-sans/noto-sans-v14-latin-700.ttf'); 
+  }
+  /* noto-sans-700italic - latin */
+  @font-face {
+    font-family: 'Noto Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/noto-sans/noto-sans-v14-latin-700italic.ttf'); 
+  }
+
+  html{
+      font-family: Noto Sans,  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 700;
+      ;
+  }
+
+  h

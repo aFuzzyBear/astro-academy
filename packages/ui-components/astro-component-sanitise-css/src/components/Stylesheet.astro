@@ -1,0 +1,98 @@
+---
+export type SanitizeList =
+        "all" |
+        "bare"|
+        "forms"|
+        "assets"|
+        "typography"|
+        "reducedMotion"|
+        "sysUI"|
+        "monoUI"
+    
+export interface Props{
+    href: "npm:" | string | string[],
+    sanitize?:SanitizeList
+}
+
+const sanitizerURLS={
+    default:"https://cdn.skypack.dev/sanitize.css",
+    forms:"https://unpkg.com/sanitize.css/forms.css",
+    assets:"https://unpkg.com/sanitize.css/assets.css",
+    typography:"https://unpkg.com/sanitize.css/typography.css",
+    reducedMotion:"https://unpkg.com/sanitize.css/reduce-motion.css",
+    sysUI:"https://unpkg.com/sanitize.css/system-ui.css",
+    monoUI:"https://unpkg.com/sanitize.css/ui-monospace.css"
+}
+
+const {href} = Astro.props as {href: string | string[]}
+
+const {sanitize} = Astro.props as {sanitize:SanitizeList}
+
+if(!Array.isArray(href) || href.length === 0){
+    throw new Error('No Stylesheets have been included!')
+}
+/** Normalized href attributes. */
+const hrefs = (
+    Array.isArray(href) ? href : href ? [ String(href) ] : []
+).map(
+    href => (
+        href.startsWith('npm:')
+            ? 'https://cdn.skypack.dev/' + href.slice(4)
+        : href
+    )
+)
+const linkHTML = hrefs.map(
+    (link)=>(
+        <link rel="stylesheet" href={link} type="text/css"/>
+    )
+)
+
+const returnLink=(path)=> <link rel="stylesheet" href={path} type="text/css" />
+
+let sanitizedArray = []
+
+const sanitizeAll = () => {
+    Object.entries(sanitizerURLS).forEach(link=>{
+        sanitizedArray.push(
+            <link rel="stylesheet" href={link[1]} type="text/css"/>
+        )
+    })
+}
+const sanitizePushTwo = (name) =>{
+    sanitizedArray.push(
+        <link rel="stylesheet" href={sanitizerURLS['default']} type="text/css" />
+    )
+    sanitizedArray.push(
+        <link rel="stylesheet" href={sanitizerURLS[`${name}`]} type="text/css" />
+    )
+}
+
+const linkSanitizeHTML = (
+    sanitize === 'all' 
+        ? sanitizeAll()
+    : sanitize === 'bare' 
+        ? sanitizePushTwo('bare')
+    : sanitize === 'forms' 
+        ? sanitizePushTwo('forms')
+    : sanitize === 'assets' 
+        ? sanitizePushTwo('assets')
+    : sanitize === 'typography' 
+        ? sanitizePushTwo('typography')
+    : sanitize === 'reducedMotion' 
+        ? sanitizePushTwo('reducedMotion')
+    : sanitize === 'sysUI' 
+        ? sanitizePushTwo('sysUI')
+    : sanitize === 'monoUI' 
+        ? sanitizePushTwo('monoUI')
+    : null
+
+)
+
+const populateSanitizer = async() =>{
+    const worker = await linkSanitizeHTML
+    return sanitizedArray
+}
+
+---
+    {linkHTML}
+    {await populateSanitizer()}
