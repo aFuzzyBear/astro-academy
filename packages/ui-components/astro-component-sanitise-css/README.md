@@ -17,9 +17,12 @@ import Stylesheet from 'astro-ui-stylesheet'
 <html>
   <head>
     <Stylesheet 
-        href: string | string[] = {["/assets/styles/globals.css",Astro.resolve('./src/components/x.css')]}
+        href: string | string[] = {[
+            "/assets/styles/globals.css",
+            Astro.resolve('./src/components/x.css')
+            ]}
         sanitize:string =  "all" | "bare"| "forms"| "assets"| "typography"|
-        "reducedMotion"| "sysUI"| "monoUI"
+                            "reducedMotion"| "sysUI"| "monoUI"
     />
  </head>
 </html>
