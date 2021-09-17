@@ -1,5 +1,6 @@
 ---
 	import Stylesheet from '../components/Stylesheet.astro'
+
 ---
 <html lang="en">
 
@@ -10,12 +11,11 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>Welcome to Astro</title>
 	<Stylesheet 
-		attributes={[
-		{
-			href:'./demo.css',
+		attributes={[{
+			href:'npm:bulma/css/bulma.css',
 			media:'screen'
-		}
-		]}
+		}]}
+		
 	  	sanitize="all"
 	/>
 </head>

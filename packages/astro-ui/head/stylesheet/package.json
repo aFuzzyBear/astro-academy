@@ -1,11 +1,11 @@
 {
-  "name": "astro-ui/head/stylesheet",
+  "name": "astro-ui-stylesheet",
   "author": "aFuzzyBear",
-  "keywords": ["astro","astro-ui","astro component","astro stylesheet"],
-  "description": "Astro StyleSheet Component. This single Component provides an interface to apply many stylesheets in one single place, have it also apply relevant sanitize.css files that are required",
-  "license": "MIT",
-  "version": "1.0.0",
-  "private": false,
+  "keywords": [],
+  "description": "Astro StyleSheet Link Component, This single Component provides the interface to apply many stylesheets in one place, have it also apply relevant sanitize.css files that are required",
+  "license": "ISC",
+  "version": "0.0.1",
+  "private": true,
   "main": "index.js",
   "homepage": "https://github.com/aFuzzyBear/astro-academy/tree/master/packages/ui-components/astro-component-sanitise-css",
   "bugs": {

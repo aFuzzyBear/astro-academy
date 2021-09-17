@@ -12,7 +12,8 @@ function handelError(err='No Stylesheets have been included!'){
  *  @returns HTMLLinkElement,  
  * 
  **/
-const returnLink =(path:string,media?:string):HTMLLinkElement=> <link rel="stylesheet" type="text/css" href={path} media={media && media}/>
+const returnLink = (path:string,media?:string):HTMLLinkElement => 
+<link rel="stylesheet" type="text/css" href={path} media={media && media}/>
 
 export type SanitizeList =
         "all" |
@@ -25,11 +26,11 @@ export type SanitizeList =
         "monoUI"
     
 export interface Props{
-    attributes: linkAttributes | linkAttributes[]
+    attributes: linkAttributes[]
     sanitize?:SanitizeList
 }
-declare type linkAttributes = {
-    href: "npm:" | string | string[],
+export declare type linkAttributes = {
+    href: "npm:" | string ,
     media?:string
 }
 
@@ -51,12 +52,10 @@ if(!Array.isArray(attributes) || attributes.length === 0){
     handelError()
 }
 
-const linkCSS = (
-    Array.isArray(attributes) ? attributes : []
-).map(
+const linkCSS = (attributes).map(
     (attribute) =>{
         const {href,media} = attribute
-        let src = href.startsWith('npm:') 
+        let src = href.startsWith('npm:') && href.endsWith('.css')
                     ? 'https://cdn.skypack.dev/' + href.slice(4) 
                     : href
          return returnLink(src,media)
