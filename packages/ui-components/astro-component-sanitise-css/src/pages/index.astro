@@ -10,8 +10,13 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>Welcome to Astro</title>
 	<Stylesheet 
-		href={['/styles/global.css','/demo2.css']}
-	  	sanitize="sysUI"
+		attributes={[
+		{
+			href:'./demo.css',
+			media:'screen'
+		}
+		]}
+	  	sanitize="all"
 	/>
 </head>
 
