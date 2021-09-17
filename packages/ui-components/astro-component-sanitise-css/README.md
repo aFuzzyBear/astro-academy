@@ -1,6 +1,6 @@
 # Astro Stylesheet Component
 
-A simple component to help abstract the monotony of adding stylesheets to any Astro project. 
+A simple component to help abstract the monotony of adding stylesheets to any Astro project.
 
 To use simply:
 
@@ -17,10 +17,14 @@ import Stylesheet from 'astro-ui-stylesheet'
 <html>
   <head>
     <Stylesheet 
-        href: string | string[] = {[
-            "/assets/styles/globals.css",
-            Astro.resolve('./src/components/x.css')
-            ]}
+        attributes:Object | Array<Object> = {
+          [
+            {
+              href:string = "./styles/global.css" || Astro.resolve('./src/components/x.css'), 
+              media:string = "screen and (max-width:600px)"
+            }
+          ]
+        }
         sanitize:string =  "all" | "bare"| "forms"| "assets"| "typography"|
                             "reducedMotion"| "sysUI"| "monoUI"
     />
