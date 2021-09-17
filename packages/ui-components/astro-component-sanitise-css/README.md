@@ -32,7 +32,7 @@ import Stylesheet from 'astro-ui-stylesheet'
 </html>
 ```
 
-This would then populate all the relevant `<link rel='stylesheet' href='' type='text/css'>` required in the head of the Layout file.
+This would then populate all the relevant `<link rel='stylesheet' href='' type='text/css' media=''>` required in the head of the Layout file.
 
 #### Credits
 
