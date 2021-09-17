@@ -1,6 +1,6 @@
 {
-  "name": "Astro Stylesheet Component",
-  "author": ["aFuzzyBear", "jon"],
+  "name": "astro-ui-stylesheet-component",
+  "author": "aFuzzyBear",
   "keywords": [],
   "description": "Astro StyleSheet Link Component, This single Component provides the interface to apply many stylesheets in one place, have it also apply relevant sanitize.css files that are required",
   "license": "ISC",
