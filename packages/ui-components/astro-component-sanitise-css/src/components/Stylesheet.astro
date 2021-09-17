@@ -28,8 +28,12 @@ const {href} = Astro.props as {href: string | string[]}
 
 const {sanitize} = Astro.props as {sanitize:SanitizeList}
 
-if(!Array.isArray(href) || href.length === 0){
+function handelError(){
     throw new Error('No Stylesheets have been included!')
+}
+
+if(!Array.isArray(href) || href.length === 0){
+    handelError()
 }
 /** Normalized href attributes. */
 const hrefs = (
@@ -41,58 +45,92 @@ const hrefs = (
         : href
     )
 )
+/** 
+ * Turns the hrefs into [...<link>] tags
+ */
 const linkHTML = hrefs.map(
     (link)=>(
-        <link rel="stylesheet" href={link} type="text/css"/>
+        <link rel="stylesheet" href={link} />
     )
 )
 
-const returnLink=(path)=> <link rel="stylesheet" href={path} type="text/css" />
+/**
+ *  @params path - used as source for the href  
+ *  @returns HTMLLinkElement,  
+ * 
+ **/
+const returnLink =(path:string)=> <link rel="stylesheet" href={path} type="text/css" />
 
+/**Global to place the sanitized links into */
 let sanitizedArray = []
 
+/**
+ * Provides a link for each key in sanitizerURLS
+ */
 const sanitizeAll = () => {
     Object.entries(sanitizerURLS).forEach(link=>{
         sanitizedArray.push(
-            <link rel="stylesheet" href={link[1]} type="text/css"/>
+            returnLink(link[1])
         )
     })
 }
-const sanitizePushTwo = (name) =>{
-    sanitizedArray.push(
-        <link rel="stylesheet" href={sanitizerURLS['default']} type="text/css" />
-    )
-    sanitizedArray.push(
-        <link rel="stylesheet" href={sanitizerURLS[`${name}`]} type="text/css" />
-    )
+
+/**
+ * Assister function to help push the right sanitized links to the array
+ */
+const getSanitizeLinks = async (name) =>{
+    if(name ==='all'){
+       sanitizeAll()
+    }
+    else if(name === 'bare'){
+        sanitizedArray.push(
+            returnLink(sanitizerURLS['default'])
+        )
+    }
+    else{
+        sanitizedArray.push(
+            returnLink(sanitizerURLS['default'])
+        )
+        sanitizedArray.push(
+            returnLink(sanitizerURLS[`${name}`])
+        )
+    }
 }
 
+/**
+ * Normalise the sanitize behaviour
+ */
 const linkSanitizeHTML = (
     sanitize === 'all' 
-        ? sanitizeAll()
+        ? getSanitizeLinks('all')
     : sanitize === 'bare' 
-        ? sanitizePushTwo('bare')
+        ? getSanitizeLinks('bare')
     : sanitize === 'forms' 
-        ? sanitizePushTwo('forms')
+        ? getSanitizeLinks('forms')
     : sanitize === 'assets' 
-        ? sanitizePushTwo('assets')
+        ? getSanitizeLinks('assets')
     : sanitize === 'typography' 
-        ? sanitizePushTwo('typography')
+        ? getSanitizeLinks('typography')
     : sanitize === 'reducedMotion' 
-        ? sanitizePushTwo('reducedMotion')
+        ? getSanitizeLinks('reducedMotion')
     : sanitize === 'sysUI' 
-        ? sanitizePushTwo('sysUI')
+        ? getSanitizeLinks('sysUI')
     : sanitize === 'monoUI' 
-        ? sanitizePushTwo('monoUI')
-    : null
+        ? getSanitizeLinks('monoUI')
+    : handelError()
 
 )
 
+/**
+ * Function to populate the list of sanitized links 
+ */
 const populateSanitizer = async() =>{
+    //  await getSanitizeLinks(sanitize) //This is strange, it runs this twice, no idea why
     const worker = await linkSanitizeHTML
     return sanitizedArray
 }
 
 ---
+    <!-- Populate the generated Stylesheet Links onto the DOM -->
     {linkHTML}
     {await populateSanitizer()}
