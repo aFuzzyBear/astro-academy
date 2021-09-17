@@ -114,6 +114,6 @@ This would then apply the relevant set of Sanitizer links to the document.
 
 This project is firmly of the back of this great project. Please look to support the projects by giving them a star on github, it would really mean the world to them.
 
-#### Credits
+## Credits
 
 This project was largely inspired and assisted by [jonathantneal](https://github.com/jonathantneal) from [csstools/sanitize.css](https://github.com/csstools/sanitize.css)
