@@ -21,7 +21,15 @@ import Stylesheet from 'astro-ui-stylesheet'
         attributes: Array<Object> = {
           [
             {
-              href:string = "./styles/global.css" || Astro.resolve('./src/components/x.css'), || "npm:bootstrap@next/dist/css/bootstrap.min.css"
+              href:string = "./styles/global.css", 
+              media:string = "screen "
+            },
+            {
+              href:string = Astro.resolve('./src/components/print.css'),
+              media:string = "print"
+            },
+            {
+              href:string = "npm:bootstrap@next/dist/css/bootstrap.min.css",
               media:string = "screen and (max-width:600px)"
             }
           ]
