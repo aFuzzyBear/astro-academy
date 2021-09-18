@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.20.5"
+    "astro": "^0.20.5",
+    "astro-ui-stylesheet": "^1.0.0"
   }
 }
