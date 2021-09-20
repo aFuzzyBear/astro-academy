@@ -1955,10 +1955,10 @@ astring@^1.7.4:
   resolved "https://registry.npmjs.org/astring/-/astring-1.7.5.tgz"
   integrity sha512-lobf6RWXb8c4uZ7Mdq0U12efYmpD1UFnyOWVJPTa3ukqZrMopav+2hdNu0hgBF0JIBFK9QgrBDfwYvh3DFJDAA==
 
-astro-ui-stylesheet@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/astro-ui-stylesheet/-/astro-ui-stylesheet-1.0.3.tgz#d4b847bb9a2e8dd152569b60c88f701aad6e03f7"
-  integrity sha512-QO0dkPqXvCUUkA0FrbKJru/gPSOLNJdAGl/A7BNifpuxj78GNHjQbSR48cDqpDH+F3F8kBV+G8tgp9lJZxIJkw==
+astro-ui-stylesheet@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/astro-ui-stylesheet/-/astro-ui-stylesheet-1.0.5.tgz#00b72a99045fb3362488e09f5b1054e47c6b37aa"
+  integrity sha512-R9sc1RdV0eWyZbbW5Z7GozkcMW+hC0rIF+5laiyUnn0exuMvacGwZmM2XBK60NzdYm+i3NAPW0w1MZ/eGBUA3A==
 
 astro@^0.20.5:
   version "0.20.5"
