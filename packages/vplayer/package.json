@@ -1,0 +1,19 @@
+{
+  "name": "@example/minimal",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "^0.20.7",
+    "plyr": "^3.6.8",
+    "prop-types": "^15.7.2"
+  },
+  "dependencies": {
+    "react-aptor": "^1.2.1"
+  }
+}
