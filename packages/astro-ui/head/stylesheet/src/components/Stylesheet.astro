@@ -25,13 +25,14 @@ export type SanitizeList =
         "sysUI"|
         "monoUI"
     
-export interface Props{
-    attributes: linkAttributes[]
-    sanitize?:SanitizeList
-}
 export declare type linkAttributes = {
-    href: "npm:" | string ,
-    media?:string
+    href?: "npm:" | string ,
+    media?: string
+}
+
+export interface Props extends linkAttributes {
+    attributes?: linkAttributes[]
+    sanitize?: SanitizeList
 }
 
 const sanitizerURLS = {
@@ -45,14 +46,18 @@ const sanitizerURLS = {
 }
 
 // Acquiring values from props
-const {attributes}= Astro.props as {attributes:linkAttributes}
-const {sanitize} = Astro.props as {sanitize:SanitizeList}
+const {attributes, sanitize, href: hrefValue, media: mediaValue} = Astro.props as Props
+const attributesList = attributes || []
 
-if(!Array.isArray(attributes) || attributes.length === 0){
+if(!hrefValue && (!Array.isArray(attributes) || attributes.length === 0)){
     handelError()
 }
 
-const linkCSS = (attributes).map(
+if (hrefValue) {
+    attributesList.push({href: hrefValue, media: mediaValue})
+}
+
+const linkCSS = attributesList.map(
     (attribute) =>{
         const {href,media} = attribute
         let src = href.startsWith('npm:') && href.endsWith('.css')
